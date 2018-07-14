@@ -23,8 +23,20 @@ Route::get('/admin', function() {
 	return view ('admin.dashboard');
 });
 
-Route::get('admin/productos','ProductosController@index'); //listado
-Route::get('admin/productos/agregar','ProductosController@agregar'); //crear producto
-Route::post('admin/productos','ProductosController@guardar'); //guardar el producto
-Route::get('admin/productos/editar',''); //editar producto
-Route::get('admin/productos/eliminar',''); //eliminar producto
+//CRUD PRODUCTOS
+Route::get('/admin/productos','ProductosController@index'); //listado
+Route::get('/admin/productos/agregar','ProductosController@agregar'); //crear producto
+Route::post('/admin/productos','ProductosController@guardar'); //guardar el producto
+
+Route::get('/admin/productos/{id}/verprod','ProductosController@verprod');
+
+Route::get('/admin/productos/{id}/editar','ProductosController@editar'); //editar producto
+Route::post('/admin/productos/{id}/actualizar','ProductosController@actualizar'); //editar producto
+
+//CRUD CLIENTES
+
+Route::get('/admin/clientes','ClientesController@index'); //listado de clientes
+Route::get('/admin/clientes/agregar','ClientesController@agregar'); //crear nuevo clientes
+Route::post('/admin/clientes','ClientesController@guardar'); //guardar el nuevo cliente
+
+

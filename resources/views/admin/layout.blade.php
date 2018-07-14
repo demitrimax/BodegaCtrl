@@ -3,18 +3,20 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Control de Bodega | Principal</title>
+  <title>Control de Bodega | @yield('titulo-pagina','Pagina Principal')</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="adminlte/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/font-awesome/css/font-awesome.min.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('adminlte/css/adminlte.min.css') }}">
+    <!-- DataTables -->
+  <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/datatables/dataTables.bootstrap4.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -60,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="adminlte/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{{ URL::asset('adminlte/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -76,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="adminlte/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{ URL::asset('adminlte/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -92,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="adminlte/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{ URL::asset('adminlte/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -146,8 +148,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="adminlte/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="{{url('/home')}}" class="brand-link">
+      <img src="{{URL::asset('adminlte/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Control Bodega</span>
     </a>
@@ -157,10 +159,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="adminlte/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{URL::asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+          @if (Auth::check()) 
+          <a href="#" class="d-block">{{ Auth::user()->name }} </a>
+          @endif
         </div>
       </div>
 
@@ -170,10 +174,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
            <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('/admin/productos') }}" class="nav-link">
               <i class="nav-icon fa fa-th"></i>
-              <p> Catalogo de Productos
-              </p>
+              <p> Catalogo de Productos</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/admin/clientes') }}" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
+              <p> Clientes </p>
             </a>
           </li>
           <li class="nav-item has-treeview menu-open">
@@ -224,6 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">@yield('titulo-pagina','Pagina Principal')</h1>
           </div><!-- /.col -->
+          @yield('float-sm-right')
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -260,10 +270,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="{{ URL::asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ URL::asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ URL::asset('adminlte/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ URL::asset('adminlte/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
+<!-- SlimScroll -->
+<script src="{{ URL::asset('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ URL::asset('adminlte/plugins/fastclick/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/js/adminlte.min.js"></script>
+<script src="{{ URL::asset('adminlte/js/adminlte.min.js') }}"></script>
+<!-- page script -->
+@yield('scripts')
 </body>
 </html>
