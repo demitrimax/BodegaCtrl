@@ -40,3 +40,6 @@ Route::get('/admin/clientes/agregar','ClientesController@agregar'); //crear nuev
 Route::post('/admin/clientes','ClientesController@guardar'); //guardar el nuevo cliente
 
 
+//POST VALORES DE INVENTARIO APP ACCESS
+
+Route::post('/admin/rep_inventario', 'InventarioController@guardarpost');
