@@ -16,9 +16,9 @@ class CreateRepInventariosTable extends Migration
         Schema::create('rep_inventarios', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->string('idtienda',10);
+            $table->string('tienda_id',10);
             $table->string('nomtienda',50);
-            $table->integer('id_producto');
+            $table->integer('producto_id');
             $table->string('Nproducto',50);
             $table->integer('saldo_inicial');
             $table->integer('entradas');

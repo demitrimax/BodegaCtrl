@@ -20,14 +20,14 @@ class CreateProductosTable extends Migration
             $table->string('Umedida')->nullable();
             $table->integer('stock');
             $table->string('imagen')->nullable();
-            $table->boolean('ExcentoDescuento');
+            $table->boolean('ExcentoDescuento')->default(0);
             $table->decimal('precio');
-            $table->decimal('P20')->nullable();
             $table->decimal('P25')->nullable();
             $table->decimal('P29')->nullable();
             $table->decimal('P30')->nullable();
             $table->decimal('P35')->nullable();
             $table->decimal('P40')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -31,13 +31,18 @@ Route::post('/admin/productos','ProductosController@guardar'); //guardar el prod
 Route::get('/admin/productos/{id}/verprod','ProductosController@verprod');
 
 Route::get('/admin/productos/{id}/editar','ProductosController@editar'); //editar producto
-Route::post('/admin/productos/{id}/actualizar','ProductosController@actualizar'); //editar producto
+Route::post('/admin/productos/{id}/actualizar','ProductosController@actualizar'); //actualizar producto
 
 //CRUD CLIENTES
 
 Route::get('/admin/clientes','ClientesController@index'); //listado de clientes
 Route::get('/admin/clientes/agregar','ClientesController@agregar'); //crear nuevo clientes
 Route::post('/admin/clientes','ClientesController@guardar'); //guardar el nuevo cliente
+
+Route::get('/admin/clientes/{id}/verclient','ClientesController@verclient'); // ver detalles del cliente
+
+Route::get('/admin/clientes/{id}/editar','ClientesController@editar'); //editar cliente
+Route::post('/admin/clientes/{id}/actualizar','ClientesController@actualizar'); //actualizar cliente
 
 
 //POST VALORES DE INVENTARIO APP ACCESS

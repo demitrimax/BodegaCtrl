@@ -30,10 +30,10 @@
                 <tbody>
                 @foreach ($clientes as $cliente)
                 <tr>
-                  <td>{{ $cliente->nombre }}</td>
+                  <td>{{ $cliente->Nombre }}</td>
                   <td>{{ $cliente->RFC }}</td>
                   <td>{{ $cliente->PorcDescuento }}</td>
-                  <th><button class="btn btn-outline-primary" rel="tooltip" title="Editar Producto"><a href="{{ url('/admin/productos/'.$producto->id.'/editar')}}"> <i class="fa fa-edit blue"></i> </a></button> <button class="btn btn-outline-secondary" rel="tooltip" title="Más información"><a href="{{ url('/admin/productos/'.$producto->id.'/verprod')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
+                  <th><button class="btn btn-outline-primary" rel="tooltip" title="Editar Cliente"><a href="{{ url('/admin/clientes/'.$cliente->id.'/editar')}}"> <i class="fa fa-edit blue"></i> </a></button> <button class="btn btn-outline-secondary" rel="tooltip" title="Más información"><a href="{{ url('/admin/clientes/'.$cliente->id.'/verclient')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
                 </tr>
                 @endforeach
                 </tbody>
@@ -55,8 +55,8 @@
 @section('scripts')
 <script>
   $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#Clientes2").DataTable();
+    $('#Clientes').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

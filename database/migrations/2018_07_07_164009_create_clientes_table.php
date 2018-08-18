@@ -17,7 +17,7 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('Nombre',50)->unique();
             $table->string('RFC')->nullable();
-            $table->string('PorcDescuento',4);
+            $table->enum('PorcDescuento',array('25%','29%','30%','35%','40%'));
             $table->softDeletes();
             $table->timestamps();
         });

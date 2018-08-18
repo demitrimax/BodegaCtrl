@@ -15,13 +15,14 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_usuario')->unsigned();
-                $table->foreign('id_usuario')->references('id')->on('users');
-            $table->integer('id_cliente')->unsigned();
-                $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->integer('usuario_id')->unsigned();
+                $table->foreign('usuario_id')->references('id')->on('users');
+            $table->integer('cliente_id')->unsigned();
+                $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->decimal('total');
             $table->integer('envases')->nullable();
             $table->boolean('pendiente');
+            $table->softDeletes();
             $table->dateTime('fecha')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
