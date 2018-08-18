@@ -45,6 +45,5 @@ Route::get('/admin/clientes/{id}/editar','ClientesController@editar'); //editar 
 Route::post('/admin/clientes/{id}/actualizar','ClientesController@actualizar'); //actualizar cliente
 
 
-//POST VALORES DE INVENTARIO APP ACCESS
-
-Route::post('/admin/rep_inventario', 'InventarioController@guardarpost');
+//PROFILE
+Route::get('/admin/profile', 'profileController@index');

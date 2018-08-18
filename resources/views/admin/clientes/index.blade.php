@@ -1,5 +1,10 @@
 @extends('admin.layout')
 
+@section('stylesheets')
+   <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+@endsection
+
 @section('titulo-pagina','Lista de Clientes')
 @section('float-sm-right')
 <div class="col-sm-6">
@@ -53,6 +58,9 @@
 
 @endsection
 @section('scripts')
+<!-- DataTables -->
+<script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
   $(function () {
     $("#Clientes2").DataTable();
