@@ -1,5 +1,7 @@
 @extends('admin.layout')
 
+@section('client-active','active')
+
 @section('stylesheets')
    <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
@@ -7,22 +9,20 @@
 
 @section('titulo-pagina','Lista de Clientes')
 @section('float-sm-right')
-<div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('admin/clientes/agregar/')}}">Agregar Clientes</a></li>
-              <li class="breadcrumb-item active">Principal</li>
-            </ol>
-          </div>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
+          <li class="active">Clientes</li>
+      </ol>
 @endsection
 @section('content')
 	     <div class="row">
         <div class="col-12">
-         <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">LISTADO DE CLIENTES</h3>
+         <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">LISTADO DE CLIENTES</h3>
             </div>
 
-          <div class="card-body">
+           <div class="box-body">
               <table id="Clientes" class="table table-bordered table-hover">
                 <thead>
                 <tr>

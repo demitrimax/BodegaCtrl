@@ -1,23 +1,28 @@
 @extends('admin.layout')
 
+@section('product-active','active')
+
+@section('stylesheets')
+   <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+@endsection
+
 @section('titulo-pagina','Lista de Productos')
 @section('float-sm-right')
-<div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('admin/productos/agregar/')}}">Agregar Productos</a></li>
-              <li class="breadcrumb-item active">Principal</li>
-            </ol>
-          </div>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
+          <li class="active">Lista de Producto</li>
+      </ol>
 @endsection
 @section('content')
 	     <div class="row">
         <div class="col-12">
-         <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">CATALOGO DE PRODUCTOS</h3>
+         <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">CATALOGO DE PRODUCTOS</h3>
             </div>
 
-          <div class="card-body">
+          <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -56,6 +61,9 @@
 
 @endsection
 @section('scripts')
+<!-- DataTables -->
+<script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
   $(function () {
     $("#example1").DataTable();

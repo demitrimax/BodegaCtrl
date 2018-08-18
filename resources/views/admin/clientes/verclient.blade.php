@@ -1,47 +1,49 @@
 @extends('admin.layout')
 @section('titulo-pagina','Info: '. $cliente->Nombre )
+
+@section('client-active','active')
+
 @section('float-sm-right')
-<div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Editar Cliente</li>
-              <li class="breadcrumb-item"><a href="{{url('admin/clientes/')}}">Principal</a></li>
-            </ol>
-          </div>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
+          <li>Clientes</li>
+          <li class="active">Detalles del Cliente</li>
+        </ol>
 @endsection
 @section('content')
 
             <!-- general form elements -->
-            <div class="card">
-              <div class="card-header">
+            <div class="box">
+              <div class="box-header">
 
           <div class="row">
             <div class="col-md-6">
             <!-- Widget: user widget style 2 -->
-            <div class="card card-widget widget-user-2">
+            <div class="box box-widget widget-user-2">
               <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header bg-warning">
+              <div class="widget-user-header bg-yellow">
                 <div class="widget-user-image">
-                  <img class="img-circle elevation-2" src="{{ url('adminlte/img/no-image-icon.png') }}" alt="Imagen del Producto">
+                  <img class="img-circle" src="{{ url('adminlte/img/no-image-icon.png') }}" alt="Imagen del Producto">
                 </div>
                 <!-- /.widget-user-image -->
                 <h3 class="widget-user-username">{{ $cliente->Nombre }}</h3>
                 <h5 class="widget-user-desc">{{ $cliente->RFC }}</h5>
               </div>
-              <div class="card-footer p-0">
-                <ul class="nav flex-column">
+              <div class="box-footer no-padding">
+                <ul class="nav nav-stacked">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Edad <span class="float-right badge bg-primary"> Desconocida </span>
+                      Edad <span class="pull-right badge bg-blue"> Desconocida </span>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Fecha de Nacimiento: <span class="float-right badge bg-primary"> Desconocido </span>
+                      Fecha de Nacimiento: <span class="pull-right badge bg-blue"> Desconocido </span>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Porcentaje de Descuento <span class="float-right badge bg-info">{{ $cliente->PorcDescuento }}</span>
+                      Porcentaje de Descuento <span class="pull-right badge bg-blue">{{ $cliente->PorcDescuento }}</span>
                     </a>
                   </li>
                   
@@ -52,7 +54,7 @@
           </div>
                     <div class="col-lg-3 col-6">
             <!-- small card -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-green">
               <div class="inner">
                 <h3>{{ $cliente->PorcDescuento }}</h3>
 
@@ -68,7 +70,7 @@
           </div>
             <div class="col-lg-3 col-6">
             <!-- small card -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-aqua">
               <div class="inner">
                 <h3>$1,550</h3>
 

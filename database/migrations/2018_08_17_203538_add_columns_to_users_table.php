@@ -16,7 +16,9 @@ class AddColumnsToUsersTable extends Migration
         //
             Schema::table('users', function (Blueprint $table)
                 {
+                    $table->string('profesion')->nullable();
                     $table->string('avatar')->nullable()->default('avatar.png');
+                    $table->text('bio')->nullable();
                 }); 
     }
 
@@ -29,7 +31,9 @@ class AddColumnsToUsersTable extends Migration
     {
         //
             Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('profesion');
                 $table->dropColumn('avatar');
+                $table->dropColumn('bio');
             });
     }
 }

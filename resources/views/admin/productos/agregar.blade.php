@@ -1,12 +1,12 @@
 @extends('admin.layout')
+@section('product-active','active')
 @section('titulo-pagina','Agregar producto nuevo')
 @section('float-sm-right')
-<div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Agregar Productos</li>
-              <li class="breadcrumb-item"><a href="{{url('admin/productos/')}}">Principal</a></li>
-            </ol>
-          </div>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
+          <li>Productos</li>
+          <li class="active">Agregar Producto</li>
+      </ol>
 @endsection
 @section('content')
 

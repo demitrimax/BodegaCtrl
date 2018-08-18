@@ -47,3 +47,4 @@ Route::post('/admin/clientes/{id}/actualizar','ClientesController@actualizar'); 
 
 //PROFILE
 Route::get('/admin/profile', 'profileController@index');
+Route::post('/admin/avatarchan','profileController@avatarchange');
