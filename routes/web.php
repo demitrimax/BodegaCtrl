@@ -53,3 +53,4 @@ Route::post('/admin/avatarchan','profileController@avatarchange');
 Route::post('carga/reporte/inventario','InventarioController@guardarpost');
 //MOSTRAR LOS REPORTES
 Route::get('/admin/reportes/inventario','ReportesController@inventariofechas');
+Route::post('/admin/reportes/repinventario','ReportesController@rep_inventario');

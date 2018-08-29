@@ -4,49 +4,66 @@
 @section('float-sm-right')
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
-          <li>Productos</li>
-          <li class="active">Agregar Producto</li>
+          <li>Reportes</li>
+          <li class="active">Reporte de Inventario</li>
       </ol>
 @endsection
 @section('content')
-<div class="box box-warning">
-          <div class="box-header with-border">
-            <h3 class="box-title">Seleccione la Tienda y la Fecha del reporte</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <form role="form">
-
-              <div class="form-group">
-                <div class="row">
-                <div class="col-md-1">
-                  <label>Tienda:</label>
-                </div>
-                <div class="col-md-4">
-                  <select class="form-control" name="tienda">
-                    @foreach($tiendas as $tienda)
-                    <option value="{{ $tienda->tienda_id }}">{{ $tienda->tienda_id }}</option>
-                    @endforeach
-                  </select>
-                </div>
-                <div class="col-md-1">
-                  <label>Fecha:</label>
-                </div>
-                <div class="col-md-4">
-                <select class="form-control" name="fecharep">
-                  @foreach($fechas as $fecha)
-                  <option value="{{$fecha->fecha}}">{{ date('d-m-Y', strtotime($fecha->fecha)) }}</option>
-                  @endforeach
-                </select>
-              </div>
-
-              </div>
-              <div class="box-footer">
-                <button type="submit" class="btn btn-info pull-right">Ver Reporte</button>
-              </div>
-
-            </form>
-          </div>
-          <!-- /.box-body -->
+<section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-globe"></i> Control de Bodega Online
+            <small class="pull-right">Fecha: {{ date('d-m-Y', strtotime($fecharep))  }}</small>
+          </h2>
         </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Saldo Inicial</th>
+              <th>Entradas</th>
+              <th>Cant. Acumulada</th>
+              <th>Salidas</th>
+              <th>Stock Final</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              @foreach ($rep_inventario as $producto)
+              <td>{{$producto->Nproducto}}</td>
+              <td>{{$producto->saldo_inicial}}</td>
+              <td>{{$producto->entradas}}</td>
+              <td>{{$producto->cant_acum}}</td>
+              <td>{{$producto->salidas}}</td>
+              <td>{{$producto->stockreal}}</td>
+            </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Imprimir
+          </button>
+          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+            <i class="fa fa-download"></i> Guardar en PDF
+          </button>
+        </div>
+      </div>
+    </section>
 @stop

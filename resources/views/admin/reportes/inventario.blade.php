@@ -15,8 +15,8 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <form role="form">
-
+            <form role="form" method="post" action="{{url('admin/reportes/repinventario')}}">
+              {{csrf_field()}}
               <div class="form-group">
                 <div class="row">
                 <div class="col-md-1">

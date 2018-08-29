@@ -25,6 +25,7 @@ class ReportesController extends Controller
     {
       $fecharep = $request->input('fecharep');
       $tiendaid = $request->input('tienda');
-      return view('admin.reportes.repinventario');
+      $rep_inventario = rep_inventario::where('fecha',$fecharep)->where('tienda_id',$tiendaid)->get();
+      return view('admin.reportes.repinventario')->with(compact('fecharep','tienda','rep_inventario'));
     }
 }
