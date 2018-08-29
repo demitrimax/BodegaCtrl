@@ -7,6 +7,7 @@
 /.vscode
 /.vagrant
 /plantillas
+/storage/fonts/
 Homestead.json
 Homestead.yaml
 npm-debug.log

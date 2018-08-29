@@ -4,6 +4,7 @@ namespace VentasApp\Http\Controllers;
 
 use Illuminate\Http\Request;
 use VentasApp\rep_inventario;
+use PDF;
 
 class ReportesController extends Controller
 {
@@ -26,6 +27,15 @@ class ReportesController extends Controller
       $fecharep = $request->input('fecharep');
       $tiendaid = $request->input('tienda');
       $rep_inventario = rep_inventario::where('fecha',$fecharep)->where('tienda_id',$tiendaid)->get();
-      return view('admin.reportes.repinventario')->with(compact('fecharep','tienda','rep_inventario'));
+      return view('admin.reportes.repinventario')->with(compact('fecharep','tiendaid','rep_inventario'));
+    }
+    public function rep_inventarioPDF(Request $request)
+    {
+      $fecharep = $request->input('fecharep');
+      $tiendaid = $request->input('tienda');
+      $rep_inventario = rep_inventario::where('fecha',$fecharep)->where('tienda_id',$tiendaid)->get();
+
+      $pdf = PDF::loadView('admin.reportes.repinventario', compact('fecharep', 'tiendaid', 'rep_inventario'));
+      return $pdf->stream();
     }
 }

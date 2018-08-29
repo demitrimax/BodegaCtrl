@@ -60,9 +60,14 @@
         <div class="col-xs-12">
           <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Imprimir
           </button>
-          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+          <form method="post" action="{{url('admin/reportes/repinventario/pdf')}}">
+            {{csrf_field()}}
+            <input type="hidden" name="fecharep" value="{{ $fecharep }}">
+            <input type="hidden" name="tienda" value="{{ $tiendaid }}">
+          <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">
             <i class="fa fa-download"></i> Guardar en PDF
           </button>
+        </form>
         </div>
       </div>
     </section>

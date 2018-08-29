@@ -54,3 +54,9 @@ Route::post('carga/reporte/inventario','InventarioController@guardarpost');
 //MOSTRAR LOS REPORTES
 Route::get('/admin/reportes/inventario','ReportesController@inventariofechas');
 Route::post('/admin/reportes/repinventario','ReportesController@rep_inventario');
+Route::post('/admin/reportes/repinventario/pdf','ReportesController@rep_inventarioPDF');
+
+Route::get('/pdf', function() {
+      $pdf = PDF::loadView('welcome');
+      return $pdf->download('invoice.pdf');
+});
