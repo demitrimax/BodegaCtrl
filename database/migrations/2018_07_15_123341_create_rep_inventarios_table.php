@@ -17,7 +17,7 @@ class CreateRepInventariosTable extends Migration
             $table->increments('id');
             $table->date('fecha');
             $table->string('tienda_id',10);
-            $table->string('nomtienda',50);
+            $table->string('nomtienda',50)->nullable();
             $table->integer('producto_id');
             $table->string('Nproducto',50);
             $table->integer('saldo_inicial');

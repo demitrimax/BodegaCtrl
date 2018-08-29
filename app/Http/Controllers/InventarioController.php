@@ -9,14 +9,14 @@ class InventarioController extends Controller
 {
     //función que guarde los valores para el post por la aplicación
       public function guardarpost(Request $request) {
-    	dd($request->all());
-    	
-    	/*
+    	//dd($request->all());
+
+
     	$rep_inventario = new inventario();
         $rep_inventario->fecha = $request('fecha');
-        $rep_inventario->idtienda = $request('idtienda');
+        $rep_inventario->idtienda = $request('tienda_id');
         $rep_inventario->nomtienda = $request('nomtienda');
-        $rep_inventario->id_producto = $request('id_producto');
+        $rep_inventario->id_producto = $request('producto_id');
         $rep_inventario->Nproducto = $request('Nproducto');
         $rep_inventario->saldo_inicial = $request('saldo_inicial');
         $rep_inventario->entradas = $request('entradas');
@@ -25,7 +25,7 @@ class InventarioController extends Controller
         $rep_inventario->stockreal = $request('stockreal');
         $rep_inventario->idunicodia = $request('idunicodia');
     	$rep_inventario->save();
-    	
+
     	return redirect('/admin/productos');
     	*/
     }

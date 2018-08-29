@@ -8,6 +8,10 @@ use VentasApp\Clientes;
 class ClientesController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index() {
     		$clientes = Clientes::all();
     	return view('admin.clientes.index')->with(compact('clientes'));
@@ -19,13 +23,13 @@ class ClientesController extends Controller
     }
     public function guardar(Request $request) {
     	//dd($request->all());
-    	
+
     	$cliente = new Clientes();
     	$cliente->Nombre = $request->input('nombre');
     	$cliente->RFC = $request->input('rfc');
     	$cliente->PorcDescuento = $request->input('descuento');
     	$cliente->save();
-    	
+
     	return redirect('/admin/clientes');
     }
 
@@ -42,7 +46,7 @@ class ClientesController extends Controller
 
     public function actualizar(Request $request, $id) {
         //dd($request->all());
-        
+
         $producto = Productos::find($id);
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
@@ -51,7 +55,7 @@ class ClientesController extends Controller
         //falta la imagen del producto
         $producto->precio = $request->input('precio');
         $producto->ExcentoDescuento = ($request->has('ExcentoDescuento'))? true : false;
-        
+
         $producto->P20 = $request->input('precioP20');
         $producto->P25 = $request->input('precioP25');
         $producto->P29 = $request->input('precioP29');
@@ -60,8 +64,8 @@ class ClientesController extends Controller
         $producto->P40 = $request->input('precioP40');
 
         $producto->save();
-        
+
         return redirect('/admin/productos');
-        
+
     }
 }

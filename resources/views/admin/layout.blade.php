@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('adminlte/bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('adminlte/css/AdminLTE.min.css')}}">
- 
+
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
@@ -258,7 +258,7 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Inventarios</a></li>
+            <li><a href="{{url('admin/reportes/inventario')}}">Inventarios</a></li>
             <li><a href="#">Resumen Financiero</a></li>
           </ul>
         </li>

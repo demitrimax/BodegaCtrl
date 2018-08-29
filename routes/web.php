@@ -48,3 +48,8 @@ Route::post('/admin/clientes/{id}/actualizar','ClientesController@actualizar'); 
 //PROFILE
 Route::get('/admin/profile', 'profileController@index');
 Route::post('/admin/avatarchan','profileController@avatarchange');
+
+//GUARDAR REGISTROS DE LOS REPORTES
+Route::post('carga/reporte/inventario','InventarioController@guardarpost');
+//MOSTRAR LOS REPORTES
+Route::get('/admin/reportes/inventario','ReportesController@inventariofechas');
