@@ -37,17 +37,27 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr style="height:10px">
               @foreach ($rep_inventario as $producto)
               <td>{{$producto->Nproducto}}</td>
-              <td>{{$producto->saldo_inicial}}</td>
-              <td>{{$producto->entradas}}</td>
-              <td>{{$producto->cant_acum}}</td>
-              <td>{{$producto->salidas}}</td>
-              <td>{{$producto->stockreal}}</td>
+              <td class="text-center">{{$producto->saldo_inicial}}</td>
+              <td class="text-center">{{$producto->entradas}}</td>
+              <td class="text-center">{{$producto->cant_acum}}</td>
+              <td class="text-center">{{$producto->salidas}}</td>
+              <td class="text-center">{{$producto->stockreal}}</td>
             </tr>
             @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                  <th class="text-center">TOTALES</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('saldo_inicial') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('entradas') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('cant_acum') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('salidas') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('stockreal') }}</th>
+                </tr>
+            </tfoot>
           </table>
         </div>
         <!-- /.col -->

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRepInventariosTable extends Migration
+class CreateRepFinancierosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,12 @@ class CreateRepInventariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('rep_inventarios', function (Blueprint $table) {
+        Schema::create('rep_financieros', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
             $table->string('tienda_id',10);
             $table->string('nomtienda',50);
-            $table->integer('producto_id');
-            $table->string('Nproducto',50);
-            $table->integer('saldo_inicial');
-            $table->integer('entradas');
-            $table->integer('cant_acum');
-            $table->integer('salidas');
-            $table->integer('stockreal');
-            $table->string('idunicodia',50);
+            $table->
             $table->timestamps();
         });
     }
@@ -37,6 +30,6 @@ class CreateRepInventariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rep_inventarios');
+        Schema::dropIfExists('rep_financieros');
     }
 }

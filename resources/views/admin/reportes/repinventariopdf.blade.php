@@ -3,28 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Invoice</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('adminlte/bower_components/font-awesome/css/font-awesome.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('adminlte/bower_components/Ionicons/css/ionicons.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('adminlte/dist/css/AdminLTE.min.css')}}">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
+  <title>Control de Bodega | Reporte de Inventario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>
 
 <div class="wrapper">
@@ -34,8 +14,8 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> Control de Bodega Online
-            <small class="pull-right">Fecha: {{ date('d-m-Y', strtotime($fecharep))  }}</small>
+            Control de Bodega Online
+            <small class="pull-right">Fecha: {{ date('d-m-Y', strtotime($fecharep))  }} </small>
           </h2>
         </div>
         <!-- /.col -->
@@ -44,8 +24,8 @@
 
       <!-- Table row -->
       <div class="row">
-        <div class="col-xs-12 table-responsive">
-          <table class="table table-striped">
+        <div class="col-xs-12">
+          <table class="table table-condensed table-sm" style="font-size:10px">
             <thead>
             <tr>
               <th>Producto</th>
@@ -57,17 +37,27 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              @foreach ($rep_inventario as $producto)
+          @foreach ($rep_inventario as $producto)
+            <tr style="height:15px">
               <td>{{$producto->Nproducto}}</td>
-              <td>{{$producto->saldo_inicial}}</td>
-              <td>{{$producto->entradas}}</td>
-              <td>{{$producto->cant_acum}}</td>
-              <td>{{$producto->salidas}}</td>
-              <td>{{$producto->stockreal}}</td>
+              <td class="text-center">{{$producto->saldo_inicial}}</td>
+              <td class="text-center">{{$producto->entradas}}</td>
+              <td class="text-center">{{$producto->cant_acum}}</td>
+              <td class="text-center">{{$producto->salidas}}</td>
+              <td class="text-center">{{$producto->stockreal}}</td>
             </tr>
             @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                  <th class="text-center">TOTALES</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('saldo_inicial') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('entradas') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('cant_acum') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('salidas') }}</th>
+                  <th class="text-center">{{ collect($rep_inventario)->sum('stockreal') }}</th>
+                </tr>
+            </tfoot>
           </table>
         </div>
         <!-- /.col -->

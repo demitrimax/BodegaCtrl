@@ -35,7 +35,8 @@ class ReportesController extends Controller
       $tiendaid = $request->input('tienda');
       $rep_inventario = rep_inventario::where('fecha',$fecharep)->where('tienda_id',$tiendaid)->get();
 
-      $pdf = PDF::loadView('admin.reportes.repinventario', compact('fecharep', 'tiendaid', 'rep_inventario'));
+      $pdf = PDF::loadView('admin.reportes.repinventariopdf', compact('rep_inventario','fecharep','tiendaid'));
       return $pdf->stream();
+      //return view('admin.reportes.repinventariopdf')->with(compact('fecharep','tiendaid','rep_inventario'));
     }
 }
