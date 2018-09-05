@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            Control de Bodega Online
+            Reporte de Inventario {{ $tiendaNombre->nomtienda }}
             <small class="pull-right">Fecha: {{ date('d-m-Y', strtotime($fecharep))  }} </small>
           </h2>
         </div>

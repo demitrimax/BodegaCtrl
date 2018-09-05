@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page-title','Página de Inicio')
 @section('body-class','landing-page')
 @section('page-header') page-header-small @endsection
 @section('content')
@@ -8,7 +9,7 @@
                 <div class="content-center">
                     <h1 class="title">Bienvenido a nuestra aplicación.</h1>
                     <div class="text-center">
-                        <h2>Si usted tiene los permisos necesarios, sientase libre de entrar a la administración.</h2>
+                        <h2>Esta es nuestra página de Bienvenida.</h2>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}

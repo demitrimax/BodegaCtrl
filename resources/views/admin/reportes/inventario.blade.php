@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('product-active','active')
+@section('reportes-active','active')
 @section('titulo-pagina','Reporte de Inventarios')
 @section('float-sm-right')
         <ol class="breadcrumb">
@@ -25,7 +25,7 @@
                 <div class="col-md-4">
                   <select class="form-control" name="tienda">
                     @foreach($tiendas as $tienda)
-                    <option value="{{ $tienda->tienda_id }}">{{ $tienda->tienda_id }}</option>
+                    <option value="{{ $tienda->tienda_id }}">{{ $tienda->nomtienda }}</option>
                     @endforeach
                   </select>
                 </div>

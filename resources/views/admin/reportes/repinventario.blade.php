@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('product-active','active')
+@section('reportes-active','active')
 @section('titulo-pagina','Reporte de Inventarios')
 @section('float-sm-right')
         <ol class="breadcrumb">
@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> Control de Bodega Online
+            <i class="fa fa-globe"></i> Reporte de Inventario {{ $tiendaNombre->nomtienda }}
             <small class="pull-right">Fecha: {{ date('d-m-Y', strtotime($fecharep))  }}</small>
           </h2>
         </div>

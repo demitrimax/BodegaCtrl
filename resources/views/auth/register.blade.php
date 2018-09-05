@@ -6,7 +6,7 @@
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
                     <form class="form" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
-                        @csrf
+                        {{ csrf_field() }}
                         <div class="header header-primary text-center">
                             <div class="logo-container">
                                 <img src="nowuikit/img/now-logo.png" alt="">
@@ -70,7 +70,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="{{ __('Confirm Password') }}">
                             </div>
                         </div>
-                        
+
 
                         <div class="footer text-center">
                             <button type="submit" class="btn btn-primary tn-round btn-lg btn-block">

@@ -18,7 +18,11 @@ class CreateRepFinancierosTable extends Migration
             $table->date('fecha');
             $table->string('tienda_id',10);
             $table->string('nomtienda',50);
-            $table->
+            $table->string('operacion',10);
+            $table->decimal('monto');
+            $table->string('registrounico');
+            $table->string('descripcion');
+            $table->boolean('cancelado')->default(false);
             $table->timestamps();
         });
     }

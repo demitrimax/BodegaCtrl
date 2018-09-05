@@ -188,8 +188,8 @@ desired effect
                 <img src="{{asset( 'avatar/'.Auth::user()->avatar )}}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ Auth::user()->name }} - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->name }} - Administrador
+                  <small>Rol: {{ Auth::user()->rol }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -210,10 +210,15 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{url('admin/profile')}}" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{url('admin/profile')}}" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
                 </div>
               </li>
             </ul>
@@ -251,7 +256,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="@yield('product-active')"><a href="{{ url('/admin/productos') }}"><i class="fa fa-barcode"></i> <span>Catalogo de Productos</span></a></li>
         <li class="@yield('client-active')"><a href="{{ url('/admin/clientes') }}"><i class="fa fa-group "></i> <span>Clientes</span></a></li>
-        <li class="treeview">
+        <li class="treeview @yield('reportes-active')">
           <a href="#"><i class="fa fa-link"></i> <span>Reportes</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
