@@ -4,8 +4,8 @@
 @section('float-sm-right')
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
-          <li>Productos</li>
-          <li class="active">Agregar Producto</li>
+          <li>Reportes</li>
+          <li class="active">Reportes de Inventarios</li>
       </ol>
 @endsection
 @section('content')
