@@ -69,6 +69,33 @@ class ReportesController extends Controller
       $gastos = rep_financiero::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('operacion','salida')->get();
       $abonos = rep_financiero::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('operacion','entrada')->get();
       $ventas = rep_ventas::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('condicion','EFECTIVO')->where('cancelado',false)->get();
-      return view('admin.reportes.repfinanciero')->with(compact('fecharep','tiendaNombre','gastos','abonos','ventas'));
+      return view('admin.reportes.repfinanciero')->with(compact('fecharep','tiendaNombre','tiendaid','gastos','abonos','ventas'));
+    }
+
+    public function rep_financieroPDF(Request $request)
+    {
+      $fecharep = $request->input('fecharep');
+      $tiendaid = $request->input('tienda');
+      $tiendaNombre = rep_inventario::where('tienda_id',$tiendaid)->select('nomtienda')->get()->first();
+      $gastos = rep_financiero::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('operacion','salida')->get();
+      $abonos = rep_financiero::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('operacion','entrada')->get();
+      $ventas = rep_ventas::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('condicion','EFECTIVO')->where('cancelado',false)->get();
+
+      $pdf = PDF::loadView('admin.reportes.repfinancieropdf', compact('rep_inventario','fecharep','tiendaid','tiendaNombre','gastos','abonos','ventas'));
+      return $pdf->stream();
+      //return view('admin.reportes.repfinancieropdf')->with(compact('fecharep','tiendaid','tiendaNombre','gastos','abonos','ventas'));
+    }
+    public function rep_financieroPRINT(Request $request)
+    {
+      $fecharep = $request->input('fecharep');
+      $tiendaid = $request->input('tienda');
+      $tiendaNombre = rep_inventario::where('tienda_id',$tiendaid)->select('nomtienda')->get()->first();
+      $gastos = rep_financiero::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('operacion','salida')->get();
+      $abonos = rep_financiero::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('operacion','entrada')->get();
+      $ventas = rep_ventas::where('tienda_id',$tiendaid)->where('fecha',$fecharep)->where('condicion','EFECTIVO')->where('cancelado',false)->get();
+
+      //$pdf = PDF::loadView('admin.reportes.repinventariopdf', compact('rep_inventario','fecharep','tiendaid','tiendaNombre'));
+      //return $pdf->stream();
+      return view('admin.reportes.repfinancieropdf')->with(compact('fecharep','tiendaid','tiendaNombre','gastos','abonos','ventas'));
     }
 }

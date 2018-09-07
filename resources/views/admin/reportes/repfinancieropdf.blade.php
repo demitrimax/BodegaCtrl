@@ -7,17 +7,9 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('adminlte/dist/css/AdminLTE.min.css')}}">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -34,7 +26,7 @@
           <!-- /.col -->
         </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-6">
           <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">GASTOS</h3>
@@ -65,7 +57,7 @@
 
         </div>
         <!-- /.col -->
-        <div class="col-md-6">
+        <div class="col-xs-6">
           <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">ABONOS</h3>
@@ -133,25 +125,6 @@
           </div>
         </div>
       </div>
-      <div class="row no-print">
-              <div class="col-xs-12">
-                <form method="post" action="{{url('admin/reportes/repfinanciero/print')}}" target="_blank">
-                  {{csrf_field()}}
-                  <input type="hidden" name="fecharep" value="{{ $fecharep }}">
-                  <input type="hidden" name="tienda" value="{{ $tiendaid }}">
-                <button type="submit" class="btn btn-success pull-right"><i class="fa fa-print"></i> Imprimir
-                </button>
-              </form>
-                <form method="post" action="{{url('admin/reportes/repfinanciero/pdf')}}">
-                  {{csrf_field()}}
-                  <input type="hidden" name="fecharep" value="{{ $fecharep }}">
-                  <input type="hidden" name="tienda" value="{{ $tiendaid }}">
-                <button type="submit" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                  <i class="fa fa-download"></i> Guardar en PDF
-                </button>
-              </form>
-              </div>
-            </div>
     </section>
   </div>
   <!-- ./wrapper -->
