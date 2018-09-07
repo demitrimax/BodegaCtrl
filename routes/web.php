@@ -52,6 +52,10 @@ Route::middleware(['admin'])->group( function() {
   Route::get('/admin/reportes/inventario','ReportesController@inventariofechas');
   Route::post('/admin/reportes/repinventario','ReportesController@rep_inventario');
   Route::post('/admin/reportes/repinventario/pdf','ReportesController@rep_inventarioPDF');
+  Route::post('/admin/reportes/repinventario/print','ReportesController@rep_inventarioPRINT');
+  //reportes financieros
+  Route::get('admin/reportes/financiero', 'ReportesController@financierofechas');
+  Route::post('admin/reportes/repfinanciero', 'ReportesController@rep_financiero');
 
 });
 Route::get('/admin', function() {

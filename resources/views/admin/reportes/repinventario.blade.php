@@ -29,11 +29,11 @@
             <thead>
             <tr>
               <th>Producto</th>
-              <th>Saldo Inicial</th>
-              <th>Entradas</th>
-              <th>Cant. Acumulada</th>
-              <th>Salidas</th>
-              <th>Stock Final</th>
+              <th class="text-center">Saldo Inicial</th>
+              <th class="text-center">Entradas</th>
+              <th class="text-center">Cant. Acumulada</th>
+              <th class="text-center">Salidas</th>
+              <th class="text-center">Stock Final</th>
             </tr>
             </thead>
             <tbody>
@@ -68,8 +68,13 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <button type="button" class="btn btn-success pull-right"><i class="fa fa-print"></i> Imprimir
+          <form method="post" action="{{url('admin/reportes/repinventario/print')}}" target="_blank">
+            {{csrf_field()}}
+            <input type="hidden" name="fecharep" value="{{ $fecharep }}">
+            <input type="hidden" name="tienda" value="{{ $tiendaid }}">
+          <button type="submit" class="btn btn-success pull-right"><i class="fa fa-print"></i> Imprimir
           </button>
+        </form>
           <form method="post" action="{{url('admin/reportes/repinventario/pdf')}}">
             {{csrf_field()}}
             <input type="hidden" name="fecharep" value="{{ $fecharep }}">

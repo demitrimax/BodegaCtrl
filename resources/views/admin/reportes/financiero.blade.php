@@ -1,12 +1,12 @@
 @extends('admin.layout')
 @section('reportes-active','active')
-@section('inventario-active','active')
-@section('titulo-pagina','Reporte de Inventarios')
+@section('financiero-active','active')
+@section('titulo-pagina','Reportes Financieros')
 @section('float-sm-right')
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
           <li>Reportes</li>
-          <li class="active">Reportes de Inventarios</li>
+          <li class="active">Reportes Financieros</li>
       </ol>
 @endsection
 @section('content')
@@ -16,7 +16,7 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <form role="form" method="post" action="{{url('admin/reportes/repinventario')}}">
+            <form role="form" method="post" action="{{url('admin/reportes/repfinanciero')}}">
               {{csrf_field()}}
               <div class="form-group">
                 <div class="row">

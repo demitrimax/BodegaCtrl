@@ -29,11 +29,11 @@
             <thead>
             <tr>
               <th>Producto</th>
-              <th>Saldo Inicial</th>
-              <th>Entradas</th>
-              <th>Cant. Acumulada</th>
-              <th>Salidas</th>
-              <th>Stock Final</th>
+              <th class="text-center">Saldo Inicial</th>
+              <th class="text-center">Entradas</th>
+              <th class="text-center">Cant. Acumulada</th>
+              <th class="text-center">Salidas</th>
+              <th class="text-center">Stock Final</th>
             </tr>
             </thead>
             <tbody>

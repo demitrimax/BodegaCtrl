@@ -263,8 +263,8 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{url('admin/reportes/inventario')}}">Inventarios</a></li>
-            <li><a href="#">Resumen Financiero</a></li>
+            <li class="@yield('inventario-active')"><a href="{{url('admin/reportes/inventario')}}">Inventarios</a></li>
+            <li class="@yield('financiero-active')"><a href="{{url('admin/reportes/financiero')}}">Resumen Financiero</a></li>
           </ul>
         </li>
       </ul>
