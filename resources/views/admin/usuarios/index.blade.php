@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('product-active','active')
+@section('user-active','active')
 
 @section('stylesheets')
    <!-- DataTables -->

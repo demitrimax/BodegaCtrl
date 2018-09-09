@@ -244,7 +244,7 @@ desired effect
         <li class="@yield('financiero-active')"><a href="{{url('admin/reportes/financiero')}}"><i class="fa fa-book"></i>Resumen Financiero</a></li>
         <li class="@yield('product-active')"><a href="{{ url('/admin/productos') }}"><i class="fa fa-barcode"></i> <span>Catalogo de Productos</span></a></li>
         <li class="@yield('client-active')"><a href="{{ url('/admin/clientes') }}"><i class="fa fa-group "></i> <span>Clientes</span></a></li>
-        <li class="@yield('usuarios-active')"><a href="{{url('admin/usuarios')}}"><i class="fa fa-user-plus"></i>Usuarios</a></li>
+        <li class="@yield('user-active')"><a href="{{url('admin/usuarios')}}"><i class="fa fa-user-plus"></i>Usuarios</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
