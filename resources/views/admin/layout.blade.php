@@ -188,25 +188,11 @@ desired effect
                 <img src="{{asset( 'avatar/'.Auth::user()->avatar )}}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ Auth::user()->name }} - Administrador
+                  {{ Auth::user()->name }} - {{ Auth::user()->profesion }}
                   <small>Rol: {{ Auth::user()->rol }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -254,19 +240,11 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
+        <li class="@yield('inventario-active')"><a href="{{url('admin/reportes/inventario')}}"><i class="fa fa-archive"></i>Inventarios</a></li>
+        <li class="@yield('financiero-active')"><a href="{{url('admin/reportes/financiero')}}"><i class="fa fa-book"></i>Resumen Financiero</a></li>
         <li class="@yield('product-active')"><a href="{{ url('/admin/productos') }}"><i class="fa fa-barcode"></i> <span>Catalogo de Productos</span></a></li>
         <li class="@yield('client-active')"><a href="{{ url('/admin/clientes') }}"><i class="fa fa-group "></i> <span>Clientes</span></a></li>
-        <li class="treeview @yield('reportes-active')">
-          <a href="#"><i class="fa fa-link"></i> <span>Reportes</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="@yield('inventario-active')"><a href="{{url('admin/reportes/inventario')}}">Inventarios</a></li>
-            <li class="@yield('financiero-active')"><a href="{{url('admin/reportes/financiero')}}">Resumen Financiero</a></li>
-          </ul>
-        </li>
+        <li class="@yield('usuarios-active')"><a href="{{url('admin/usuarios')}}"><i class="fa fa-user-plus"></i>Usuarios</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

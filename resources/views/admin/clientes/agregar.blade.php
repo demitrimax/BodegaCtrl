@@ -11,11 +11,11 @@
 @section('content')
 
             <!-- general form elements -->
-            <div class="card">
-              <div class="card-header">
+            <div class="box">
+              <div class="box-header">
 
             <form role="form" method="post" action="{{ url('/admin/clientes') }}">
-            {{ csrf_field() }} 
+            {{ csrf_field() }}
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Datos del Cliente</h3>
@@ -49,10 +49,10 @@
 
 
                   <button type="submit" class="btn btn-block btn-primary"> Agregar Cliente
-                  	
+
                   </button>
 
- 
+
                 <!-- /input-group -->
               </div>
               <!-- /.card-body -->

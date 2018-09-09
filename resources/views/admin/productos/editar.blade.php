@@ -11,11 +11,11 @@
 @section('content')
 
             <!-- general form elements -->
-            <div class="card">
-              <div class="card-header">
+            <div class="box">
+              <div class="box-header">
 
             <form role="form" method="post" action="{{ url('/admin/productos/'.$producto->id.'/actualizar') }}">
-            {{ csrf_field() }} 
+            {{ csrf_field() }}
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Datos del Producto</h3>
@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label>Unidad de Medida</label>
                     <select class="form-control" name="Umedida">
-                      <option @if ($producto->Umedida == 'Caja') Selected @endif>Caja</option> 
+                      <option @if ($producto->Umedida == 'Caja') Selected @endif>Caja</option>
                       <option @if ($producto->Umedida == 'Charola') Selected @endif>Charola</option>
                       <option @if ($producto->Umedida == 'Paquete') Selected @endif>Paquete</option>
                     </select>
@@ -64,7 +64,7 @@
                   </div>
                   <input type="number" class="form-control" name="precioP20" value="{{ $producto->P20 }}">
                 </div>
-                
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Precio 25% $</span>
@@ -111,10 +111,10 @@
                   </div>
 
                   <button type="submit" class="btn btn-primary"> Actualizar Producto
-                  	
+
                   </button>
 
- 
+
                 <!-- /input-group -->
               </div>
               <!-- /.card-body -->

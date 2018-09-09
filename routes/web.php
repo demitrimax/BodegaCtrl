@@ -33,7 +33,7 @@ Route::middleware(['admin'])->group( function() {
   //CRUD CLIENTES
 
   Route::get('/admin/clientes','ClientesController@index'); //listado de clientes
-  Route::get('/admin/clientes/agregar','ClientesController@agregar'); //crear nuevo clientes
+  Route::get('/admin/clientes/agregar','ClientesController@agregar'); //crear nuevo cliente
   Route::post('/admin/clientes','ClientesController@guardar'); //guardar el nuevo cliente
 
   Route::get('/admin/clientes/{id}/verclient','ClientesController@verclient'); // ver detalles del cliente
@@ -58,6 +58,13 @@ Route::middleware(['admin'])->group( function() {
   Route::post('admin/reportes/repfinanciero', 'ReportesController@rep_financiero');
   Route::post('/admin/reportes/repfinanciero/pdf','ReportesController@rep_financieroPDF');
   Route::post('/admin/reportes/repfinanciero/print','ReportesController@rep_financieroPRINT');
+
+  //CRUD USUARIOS
+  Route::get('admin/usuarios','UsuariosController@index');
+  Route::get('admin/usuario/{id}/editar', 'UsuariosController@editar');
+  Route::post('admin/usuario/{id}/actualizar', 'UsuariosController@actualizar');
+  Route::get('admin/usuario/agregar', 'UsuariosController@agregar');
+  Route::post('admin/usuario/guardar', 'UsuariosController@guardar');
 
 });
 Route::get('/admin', function() {

@@ -1,126 +1,68 @@
 @extends('admin.layout')
-@section('product-active','active')
-@section('titulo-pagina','Editar producto')
+@section('client-active','active')
+@section('titulo-pagina','Editar Cliente')
 @section('float-sm-right')
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
+          <li><a href="{{url('/admin')}}"><i class="fa fa-dashboard"></i>DashBoard</a></li>
           <li>Clientes</li>
           <li class="active">Editar Clientes</li>
       </ol>
 @endsection
 @section('content')
+<div class="row">
+  <div class="col-md-6">
 
-            <!-- general form elements -->
-            <div class="card">
-              <div class="card-header">
+                <!-- general form elements -->
+                <div class="box">
+                  <div class="box-header">
 
-            <form role="form" method="post" action="{{ url('/admin/productos/'.$producto->id.'/actualizar') }}">
-            {{ csrf_field() }} 
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Datos del Producto</h3>
-              </div>
-              <div class="card-body">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Nombre</span>
+                <form role="form" method="post" action="{{ url('/admin/clientes/'.$cliente->id.'/actualizar') }}">
+                {{ csrf_field() }}
+                <div class="card card-info">
+                  <div class="card-header">
+                    <h3 class="card-title">Datos del Cliente</h3>
                   </div>
-                  <input type="text" class="form-control" placeholder="Nombre del producto" name="nombre" value="{{ $producto->nombre }}">
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-append">
-                  	   <span class="input-group-text">Descripcion</span>
-                  		</div>
-                  		<input type="text" class="form-control" placeholder="Descripción del producto" name="descripcion" value="{{ $producto->descripcion }}">
-
-                </div>
-                <div class="form-group">
-                    <label>Unidad de Medida</label>
-                    <select class="form-control" name="Umedida">
-                      <option @if ($producto->Umedida == 'Caja') Selected @endif>Caja</option> 
-                      <option @if ($producto->Umedida == 'Charola') Selected @endif>Charola</option>
-                      <option @if ($producto->Umedida == 'Paquete') Selected @endif>Paquete</option>
-                    </select>
-                  </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Cantidad en Stock</span>
-                  </div>
-                  <input type="number" class="form-control" name="stock" value="{{ $producto->stock }}"->
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precio" value="{{ $producto->precio }}"->
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 20% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP20" value="{{ $producto->P20 }}">
-                </div>
-                
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 25% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP25" value="{{ $producto->P25 }}">
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 29% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP29" value="{{ $producto->P29 }}">
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 30% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP30" value="{{ $producto->P30 }}">
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 35% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP35" value="{{ $producto->P35 }}">
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 40% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP40" value="{{ $producto->P40 }}">
-                </div>
-
-
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="ExcentoDescuento" name="ExcentoDescuento"  @if($producto->ExcentoDescuento == 1) checked="true" @endif>
-                        <label class="form-check-label" for="ExcentoDescuento">Excento de Descuento</label>
+                  <div class="card-body">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nombre</span>
                       </div>
+                      <input type="text" class="form-control" placeholder="Nombre del Cliente" name="nombre" value="{{$cliente->Nombre}}">
                     </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-append">
+                      	   <span class="input-group-text">RFC</span>
+                      		</div>
+                      		<input type="text" class="form-control" placeholder="Registro Federal de Contribuyentes" name="RFC" value="{{$cliente->RFC}}">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Porcentaje de Descuento</label>
+                        <select class="form-control" name="descuento">
+                          <option value="25%" @if($cliente->PorcDescuento == '25%') selected @endif>25%</option>
+                          <option value="29%" @if($cliente->PorcDescuento == '29%') selected @endif>29%</option>
+                          <option value="30%" @if($cliente->PorcDescuento == '30%') selected @endif>30%</option>
+                          <option value="35%" @if($cliente->PorcDescuento == '35%') selected @endif>35%</option>
+                          <option value="40%" @if($cliente->PorcDescuento == '40%') selected @endif>40%</option>
+                        </select>
+                      </div>
+
+
+
+                      <button type="submit" class="btn btn-block btn-primary"> Editar Cliente
+
+                      </button>
+
+
+                    <!-- /input-group -->
                   </div>
-
-                  <button type="submit" class="btn btn-primary"> Actualizar Producto
-                  	
-                  </button>
-
- 
-                <!-- /input-group -->
-              </div>
-              <!-- /.card-body -->
-            </div>
-        </form>
+                  <!-- /.card-body -->
+                </div>
+            </form>
+        </div>
     </div>
+  </div>
 </div>
 
 @stop

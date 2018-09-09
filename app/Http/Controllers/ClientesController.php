@@ -26,7 +26,7 @@ class ClientesController extends Controller
 
     	$cliente = new Clientes();
     	$cliente->Nombre = $request->input('nombre');
-    	$cliente->RFC = $request->input('rfc');
+    	$cliente->RFC = $request->input('RFC');
     	$cliente->PorcDescuento = $request->input('descuento');
     	$cliente->save();
 
@@ -47,25 +47,13 @@ class ClientesController extends Controller
     public function actualizar(Request $request, $id) {
         //dd($request->all());
 
-        $producto = Productos::find($id);
-        $producto->nombre = $request->input('nombre');
-        $producto->descripcion = $request->input('descripcion');
-        $producto->Umedida = $request->input('Umedida');
-        $producto->stock = $request->input('stock');
-        //falta la imagen del producto
-        $producto->precio = $request->input('precio');
-        $producto->ExcentoDescuento = ($request->has('ExcentoDescuento'))? true : false;
+        $cliente = Clientes::find($id);
+        $cliente->Nombre = $request->input('nombre');
+        $cliente->RFC = $request->input('RFC');
+        $cliente->PorcDescuento = $request->input('descuento');
+        $cliente->save();
 
-        $producto->P20 = $request->input('precioP20');
-        $producto->P25 = $request->input('precioP25');
-        $producto->P29 = $request->input('precioP29');
-        $producto->P30 = $request->input('precioP30');
-        $producto->P35 = $request->input('precioP35');
-        $producto->P40 = $request->input('precioP40');
-
-        $producto->save();
-
-        return redirect('/admin/productos');
+        return redirect('/admin/clientes');
 
     }
 }
