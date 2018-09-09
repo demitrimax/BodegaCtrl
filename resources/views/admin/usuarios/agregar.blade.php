@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 @endsection
 
-@section('titulo-pagina','Editar Usuario')
+@section('titulo-pagina','Agregar Usuario')
 @section('float-sm-right')
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i>DashBoard</a></li>
@@ -21,7 +21,7 @@
    <!-- general form elements -->
    <div class="box box-primary">
      <div class="box-header with-border">
-       <h3 class="box-title">Editar Datos del Usuario</h3>
+       <h3 class="box-title">Agregar Nuevo Usuario</h3>
      </div>
      <!-- /.box-header -->
      <!-- form start -->
