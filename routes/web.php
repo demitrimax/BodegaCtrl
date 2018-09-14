@@ -66,6 +66,9 @@ Route::middleware(['admin'])->group( function() {
   Route::get('admin/usuario/agregar', 'UsuariosController@agregar');
   Route::post('admin/usuario/guardar', 'UsuariosController@guardar');
 
+  Route::get('ajax-fechastiendas', 'ReportesController@ajaxtiendasfechas');
+  Route::get('ajax-fechastiendasventas', 'ReportesController@ajaxtiendasfechasventas');
+
 });
 Route::get('/admin', function() {
 	return view ('admin.dashboard');
