@@ -23,7 +23,15 @@ class ReportesController extends Controller
       $tiendas = rep_inventario::select('tienda_id','nomtienda')->groupBy('tienda_id','nomtienda')->get();
       $firstTienda = rep_inventario::select('tienda_id')->groupBy('tienda_id')->first();
       //dd($firstTienda);
-      $fechas = rep_inventario::select('fecha')->groupBy('fecha')->where('tienda_id',$firstTienda->tienda_id)->orderBy('fecha','DESC')->get();
+      if ($firstTienda) {
+        $fechas = rep_inventario::select('fecha')->groupBy('fecha')->where('tienda_id',$firstTienda->tienda_id)->orderBy('fecha','DESC')->get();
+      }
+      else {
+        $fechas = rep_inventario::select('fecha')->groupBy('fecha')->get();
+        //var_dump($fechas);
+        //die;
+      }
+
       return view('admin.reportes.inventario')->with(compact('fechas','tiendas'));
     }
     public function rep_inventario(Request $request)

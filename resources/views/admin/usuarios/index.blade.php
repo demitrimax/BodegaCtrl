@@ -5,6 +5,8 @@
 @section('stylesheets')
    <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+  <script src="{{asset('sweetalert/dist/sweetalert2.min.js')}}"></script>
+  <link rel="stylesheet" href="{{asset('sweetalert/dist/sweetalert2.min.css')}}">
 @endsection
 
 @section('titulo-pagina','Lista de Usuarios')
@@ -33,6 +35,8 @@
                   <th>Correo Electrónico</th>
                   <th>Rol</th>
                   <th>Profesión</th>
+                  <th>Foto</th>
+                  <th>Último login</th>
                   <th>Opciones</th>
                 </tr>
                 </thead>
@@ -43,7 +47,9 @@
                   <td>{{ $usuario->email }}</td>
                   <td>{{ $usuario->rol }}</td>
                   <td>{{ $usuario->profesion }}</td>
-                  <th><button class="btn btn-outline-primary" rel="tooltip" title="Editar usuario"><a href="{{ url('/admin/usuario/'.$usuario->id.'/editar')}}"> <i class="fa fa-edit blue"></i> </a></button> <button class="btn btn-outline-secondary" rel="tooltip" title="Perfil del Usuario"><a href="{{ url('/admin/usuario/'.$usuario->id.'/perfil')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
+                  <td><img src="{{$usuario->avatar}}"></td>
+                  <td></td>
+                  <th><button class="btn btn-warning" rel="tooltip" title="Editar usuario"><a href="{{ url('/admin/usuario/'.$usuario->id.'/editar')}}"> <i class="fa fa-pencil"></i> </a></button> <button class="btn btn-success" rel="tooltip" title="Perfil del Usuario"><a href="{{ url('/admin/usuario/'.$usuario->id.'/perfil')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
                 </tr>
                 @endforeach
                 </tbody>
@@ -67,6 +73,9 @@
 <!-- DataTables -->
 <script src="{{asset('adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('sweetalert/dist/sweetalert2.all.min.js')}}"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <script>
   $(function () {
     $("#example1").DataTable();

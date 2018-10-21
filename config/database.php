@@ -54,6 +54,21 @@ return [
             'engine' => null,
         ],
 
+            'mysql2' => [
+            'driver' => 'mysql',
+            'host' => 'tiendas.cq9rqrogfnow.us-east-1.rds.amazonaws.com',
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'dbtiendas',
+            'username' => 'moises',
+            'password' => 'maam8102',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
