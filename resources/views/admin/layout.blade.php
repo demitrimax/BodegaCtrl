@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta lang="es-ES">
   <title>Control de Bodega | @yield('titulo-pagina','Pagina Principal')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -63,9 +60,9 @@ desired effect
     <!-- Logo -->
     <a href="{{url('admin/')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>D</b>JC</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Distribuidora</b>JC</span>
     </a>
 
     <!-- Header Navbar -->
@@ -238,11 +235,12 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
+        <li class="header">MENU PRINCIPAL</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="@yield('inventario-active')"><a href="{{url('admin/reportes/inventario')}}"><i class="fa fa-archive"></i>Inventarios</a></li>
         <li class="@yield('financiero-active')"><a href="{{url('admin/reportes/financiero')}}"><i class="fa fa-book"></i>Resumen Financiero</a></li>
         <li class="@yield('product-active')"><a href="{{ url('/admin/productos') }}"><i class="fa fa-barcode"></i> <span>Catalogo de Productos</span></a></li>
+        <li class="@yield('categoria-active')"><a href="{{ url('/admin/categorias') }}"><i class="fa fa-certificate "></i> <span>Categorías</span></a></li>
         <li class="@yield('client-active')"><a href="{{ url('/admin/clientes') }}"><i class="fa fa-group "></i> <span>Clientes</span></a></li>
         <li class="@yield('user-active')"><a href="{{url('admin/usuarios')}}"><i class="fa fa-user-plus"></i>Usuarios</a></li>
       </ul>
@@ -296,7 +294,7 @@ desired effect
     <div class="tab-content">
       <!-- Home tab content -->
       <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <h3 class="control-sidebar-heading">Actividad Reciente</h3>
         <ul class="control-sidebar-menu">
           <li>
             <a href="javascript:;">

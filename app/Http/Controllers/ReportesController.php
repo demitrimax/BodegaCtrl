@@ -69,7 +69,12 @@ class ReportesController extends Controller
     {
       $tiendas = rep_ventas::select('tienda_id','nomtienda')->groupBy('tienda_id','nomtienda')->get();
       $firstTienda = rep_ventas::select('tienda_id')->groupBy('tienda_id')->first();
+      if ($firstTienda) {
       $fechas = rep_ventas::select('fecha')->where('tienda_id',$firstTienda->tienda_id)->groupBy('fecha')->orderBy('fecha','DESC')->get();
+      }
+      else {
+        $fechas = rep_ventas::select('fecha')->groupBy('fecha')->orderBy('fecha','DESC')->get();
+      }
       return view('admin.reportes.financiero')->with(compact('tiendas','fechas'));
     }
     public function rep_financiero(Request $request)

@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['admin'])->group( function() {
+  Route::get('/admin', 'AdminController@index');
   //CRUD PRODUCTOS
   Route::get('/admin/productos','ProductosController@index'); //listado
   Route::get('/admin/productos/agregar','ProductosController@agregar'); //crear producto
@@ -65,11 +66,15 @@ Route::middleware(['admin'])->group( function() {
   Route::post('admin/usuario/{id}/actualizar', 'UsuariosController@actualizar');
   Route::get('admin/usuario/agregar', 'UsuariosController@agregar');
   Route::post('admin/usuario/guardar', 'UsuariosController@guardar');
+  
+  //CRUD CATEGORIAS
+  Route::get('admin/categorias','CategoriasController@index'); 
 
+  //AJAX REPORTES
   Route::get('ajax-fechastiendas', 'ReportesController@ajaxtiendasfechas');
   Route::get('ajax-fechastiendasventas', 'ReportesController@ajaxtiendasfechasventas');
 
+
+
 });
-Route::get('/admin', function() {
-	return view ('admin.dashboard');
-});
+

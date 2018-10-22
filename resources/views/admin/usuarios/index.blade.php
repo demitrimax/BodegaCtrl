@@ -47,9 +47,9 @@
                   <td>{{ $usuario->email }}</td>
                   <td>{{ $usuario->rol }}</td>
                   <td>{{ $usuario->profesion }}</td>
-                  <td><img src="{{$usuario->avatar}}"></td>
-                  <td></td>
-                  <th><button class="btn btn-warning" rel="tooltip" title="Editar usuario"><a href="{{ url('/admin/usuario/'.$usuario->id.'/editar')}}"> <i class="fa fa-pencil"></i> </a></button> <button class="btn btn-success" rel="tooltip" title="Perfil del Usuario"><a href="{{ url('/admin/usuario/'.$usuario->id.'/perfil')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
+                  <td><img src="{{asset('avatar/'.$usuario->avatar)}}" width="30"></td>
+                  <td>{{ $usuario->lastlogin }}</td>
+                  <th><a href="{{ url('/admin/usuario/'.$usuario->id.'/editar')}}"><button class="btn btn-warning" rel="tooltip" title="Editar usuario"> <i class="fa fa-pencil"></i> </button></a> <a href="{{ url('/admin/usuario/'.$usuario->id.'/perfil')}}"><button class="btn btn-success" rel="tooltip" title="Perfil del Usuario"> <i class="fa fa-info-circle"></i></button></a> </th>
                 </tr>
                 @endforeach
                 </tbody>

@@ -4,6 +4,7 @@ namespace VentasApp\Http\Controllers\Auth;
 
 use VentasApp\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use VentasApp\User;
 
 class LoginController extends Controller
 {
