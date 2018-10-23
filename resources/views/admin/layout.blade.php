@@ -18,7 +18,7 @@
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="{{asset('adminlte/css/skins/skin-blue.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adminlte/css/skins/_all-skins.min.css')}}">
   @yield('stylesheets')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -240,7 +240,7 @@ desired effect
         <li class="@yield('inventario-active')"><a href="{{url('admin/reportes/inventario')}}"><i class="fa fa-archive"></i>Inventarios</a></li>
         <li class="@yield('financiero-active')"><a href="{{url('admin/reportes/financiero')}}"><i class="fa fa-book"></i>Resumen Financiero</a></li>
         <li class="@yield('product-active')"><a href="{{ url('/admin/productos') }}"><i class="fa fa-barcode"></i> <span>Catalogo de Productos</span></a></li>
-        <li class="@yield('categoria-active')"><a href="{{ url('/admin/categorias') }}"><i class="fa fa-certificate "></i> <span>Categorías</span></a></li>
+        <li class="@yield('categorias-active')"><a href="{{ url('/admin/categorias') }}"><i class="fa fa-certificate "></i> <span>Categorías</span></a></li>
         <li class="@yield('client-active')"><a href="{{ url('/admin/clientes') }}"><i class="fa fa-group "></i> <span>Clientes</span></a></li>
         <li class="@yield('user-active')"><a href="{{url('admin/usuarios')}}"><i class="fa fa-user-plus"></i>Usuarios</a></li>
       </ul>
@@ -368,10 +368,19 @@ desired effect
 <script src="{{asset('adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- SlimScroll -->
+<script src="{{asset('adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
 <!-- FastClick -->
 <script src="{{asset('adminlte/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{('adminlte/js/demo.js')}}"></script>
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+</script>
 @yield('scripts')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

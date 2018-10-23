@@ -12,4 +12,7 @@ class CategoriasController extends Controller
     	$categorias = Categorias::all();
     	return view('admin.categorias.index')->with(compact('categorias'));
     }
+    public function agregar() {
+    	return view('admin.categorias.agregar');
+    }
 }

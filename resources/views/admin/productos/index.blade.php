@@ -40,7 +40,7 @@
                   <td>{{ $producto->Umedida }}</td>
                   <td>{{ $producto->stock }}</td>
                   <td>{{ $producto->precio }}</td>
-                  <th><button class="btn btn-outline-primary" rel="tooltip" title="Editar Producto"><a href="{{ url('/admin/productos/'.$producto->id.'/editar')}}"> <i class="fa fa-edit blue"></i> </a></button> <button class="btn btn-outline-secondary" rel="tooltip" title="Más información"><a href="{{ url('/admin/productos/'.$producto->id.'/verprod')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
+                  <th><a href="{{ url('/admin/productos/'.$producto->id.'/editar')}}"><button class="btn btn-primary" rel="tooltip" title="Editar Producto"> <i class="fa fa-edit blue"></i> </button></a> <a href="{{ url('/admin/productos/'.$producto->id.'/verprod')}}"><button class="btn btn-success" rel="tooltip" title="Más información"> <i class="fa fa-info-circle"></i></button></a> </th>
                 </tr>
                 @endforeach
                 </tbody>

@@ -61,7 +61,7 @@ class ProductosController extends Controller
         $producto->precio = $request->input('precio');
         $producto->ExcentoDescuento = ($request->has('ExcentoDescuento'))? true : false;
 
-        $producto->P20 = $request->input('precioP20');
+        //$producto->P20 = $request->input('precioP20');
         $producto->P25 = $request->input('precioP25');
         $producto->P29 = $request->input('precioP29');
         $producto->P30 = $request->input('precioP30');

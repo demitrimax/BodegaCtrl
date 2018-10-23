@@ -69,6 +69,7 @@ Route::middleware(['admin'])->group( function() {
   
   //CRUD CATEGORIAS
   Route::get('admin/categorias','CategoriasController@index'); 
+  Route::get('admin/categorias/agregar','CategoriasController@agregar');
 
   //AJAX REPORTES
   Route::get('ajax-fechastiendas', 'ReportesController@ajaxtiendasfechas');
