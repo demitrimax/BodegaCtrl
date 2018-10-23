@@ -14,12 +14,19 @@
             <div class="box box-info">
               <div class="box-header">
 
-            <form role="form" method="post" action="{{ url('/admin/productos/'.$producto->id.'/actualizar') }}" class="form-horizontal">
-            {{ csrf_field() }}
-
                 <h3 class="box-title">Datos del Producto</h3>
               </div>
-              <div class="box-body">
+              <div class="box-body"> 
+                <form role="form" method="post" action="{{ url('/admin/productos/'.$producto->id.'/actualizar') }}" class="form-horizontal">
+                {{ csrf_field() }}
+                
+                <div class="form-group">
+                  <label for="Nombre" class="col-sm-2 control-label">Nombre del producto</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" value="{{ $producto->nombre }}">
+                  </div>
+                </div>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Nombre</span>
