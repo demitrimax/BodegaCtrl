@@ -40,13 +40,13 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($categorias as $key->$categoria)
+                  @foreach ($categorias as $key=>$categoria)
                   <tr>
-                    <td> {{$categoria->nombre}}</td>
-                    <td> Categoria </td>
-                    <td> Descripcion </td>
-                    <td><img src="" width="30"></td>
-                    <td><a href="#"><button class="btn btn-warning" rel="tooltip" title="Editar usuario"> <i class="fa fa-pencil"></i> </button></a> <a href="#"><button class="btn btn-success" rel="tooltip" title="Perfil del Usuario"> <i class="fa fa-info-circle"></i></button></a> </td>
+                    <td> {{$key+1}}</td>
+                    <td> {{$categoria->nombre}} </td>
+                    <td> {{$categoria->descripcion}} </td>
+                    <td><img src="{{asset($categoria->foto)}}" width="30"></td>
+                    <td><a href="#"><button class="btn btn-warning" rel="tooltip" title="Detalle"> <i class="fa fa-pencil"></i> </button></a> <a href="#"><button class="btn btn-success" rel="tooltip" title="Detalles"> <i class="fa fa-info-circle"></i></button></a> <button class="btn btn-danger" rel="tooltip" title="Eliminar" Onclick="ConfirmDelete({{$categoria->id}})"> <i class="fa fa-remove"></i></button> </td>
                   </tr>
                   @endforeach
                   </tbody>
@@ -82,5 +82,26 @@
       "autoWidth": false
     });
   });
+
+    @if (session('mensaje'))
+        {!! session('mensaje') !!} 
+    @endif
+function ConfirmDelete(idcat) {
+  swal({
+        title: '¿Estás seguro?',
+        text: 'Estás por borrar una categoria.',
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Continuar',
+        }).then((result) => {
+  if (result.value) {
+    window.location = 'categorias/'+idcat+'/eliminar';
+  }
+})
+       
+}
+
 </script>
 @endsection

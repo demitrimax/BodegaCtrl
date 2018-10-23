@@ -43,11 +43,6 @@
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Precio 20% <span class="pull-right badge bg-info">{{ $producto->P20 }}</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
                       Precio 25% <span class="pull-right badge bg-info">{{ $producto->P25 }}</span>
                     </a>
                   </li>

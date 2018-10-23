@@ -41,7 +41,7 @@
                   <td>{{ $cliente->Nombre }}</td>
                   <td>{{ $cliente->RFC }}</td>
                   <td>{{ $cliente->PorcDescuento }}</td>
-                  <th><button class="btn btn-outline-primary" rel="tooltip" title="Editar Cliente"><a href="{{ url('/admin/clientes/'.$cliente->id.'/editar')}}"> <i class="fa fa-edit blue"></i> </a></button> <button class="btn btn-outline-secondary" rel="tooltip" title="Más información"><a href="{{ url('/admin/clientes/'.$cliente->id.'/verclient')}}"> <i class="fa fa-info-circle"></i></a></button> </th>
+                  <th><a href="{{ url('/admin/clientes/'.$cliente->id.'/editar')}}"><button class="btn btn-outline-primary" rel="tooltip" title="Editar Cliente"> <i class="fa fa-edit blue"></i> </button></a> <a href="{{ url('/admin/clientes/'.$cliente->id.'/verclient')}}"><button class="btn btn-outline-secondary" rel="tooltip" title="Más información"> <i class="fa fa-info-circle"></i></button></a> </th>
                 </tr>
                 @endforeach
                 </tbody>

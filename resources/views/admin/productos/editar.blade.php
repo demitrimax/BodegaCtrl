@@ -11,16 +11,15 @@
 @section('content')
 
             <!-- general form elements -->
-            <div class="box">
+            <div class="box box-info">
               <div class="box-header">
 
-            <form role="form" method="post" action="{{ url('/admin/productos/'.$producto->id.'/actualizar') }}">
+            <form role="form" method="post" action="{{ url('/admin/productos/'.$producto->id.'/actualizar') }}" class="form-horizontal">
             {{ csrf_field() }}
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Datos del Producto</h3>
+
+                <h3 class="box-title">Datos del Producto</h3>
               </div>
-              <div class="card-body">
+              <div class="box-body">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">Nombre</span>
@@ -46,7 +45,7 @@
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Cantidad en Stock</span>
+                    <span class="input-group-text">Minimo en Stock</span>
                   </div>
                   <input type="number" class="form-control" name="stock" value="{{ $producto->stock }}"->
                 </div>
@@ -56,13 +55,6 @@
                     <span class="input-group-text">Precio $</span>
                   </div>
                   <input type="number" class="form-control" name="precio" value="{{ $producto->precio }}"->
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 20% $</span>
-                  </div>
-                  <input type="number" class="form-control" name="precioP20" value="{{ $producto->P20 }}">
                 </div>
 
                 <div class="input-group mb-3">
@@ -114,11 +106,6 @@
 
                   </button>
 
-
-                <!-- /input-group -->
-              </div>
-              <!-- /.card-body -->
-            </div>
         </form>
     </div>
 </div>
