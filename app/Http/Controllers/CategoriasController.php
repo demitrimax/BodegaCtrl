@@ -45,9 +45,9 @@ class CategoriasController extends Controller
     	//die;
     	$file = $request->file('foto');
     	if ($file) {
-    	$path = public_path() . '/categoria/';
-    	$filename = uniqid().$file->getClientOriginalName();
-    	$file->move($path, $filename);
+        	$path = public_path() . '/categoria/';
+        	$filename = uniqid().$file->getClientOriginalName();
+        	$file->move($path, $filename);
     		$categoria->foto = 'categoria/'.$filename;
     	}
     	$categoria->save();
@@ -56,7 +56,7 @@ class CategoriasController extends Controller
     	return redirect('/admin/categorias')->with(compact('mensaje'));
     }
 
-     public function eliminar(request $request, $id){
+     public function eliminar(Request $request, $id){
     	//eliminar el archivo
     	$categoria = Categorias::find($request->id);
     	
@@ -64,5 +64,31 @@ class CategoriasController extends Controller
     		$categoria->delete();
     		$mensaje = "swal('Eliminado','Se agregó correctamente la categoria','sucess')";
     	return back()->with(compact('mensaje'));
+    }
+
+    public function editar($id) {
+        $categoria = Categorias::find($id);
+        return view('admin.categorias.editar')->with(compact('categoria'));
+
+    }
+
+    public function actualizar(Request $request) {
+        $categoria = Categorias::find($request->id);
+
+        $categoria->nombre = $request->input('nombre');
+        $categoria->descripcion = $request->input('descripcion');
+
+        $file = $request->file('foto');
+        if ($file) {
+            $path = public_path() . '/categoria/';
+            $filename = uniqid().$file->getClientOriginalName();
+            $file->move($path, $filename);
+            $categoria->foto = 'categoria/'.$filename;
+        }
+        $categoria->save();
+
+        $mensaje = "swal('Excelente','Se actualizó la categoría','success')";
+        return redirect('/admin/categorias')->with(compact('mensaje'));
+
     }
 }

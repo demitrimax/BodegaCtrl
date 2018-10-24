@@ -45,8 +45,12 @@
                     <td> {{$key+1}}</td>
                     <td> {{$categoria->nombre}} </td>
                     <td> {{$categoria->descripcion}} </td>
-                    <td><img src="{{asset($categoria->foto)}}" width="30"></td>
-                    <td><a href="#"><button class="btn btn-warning" rel="tooltip" title="Detalle"> <i class="fa fa-pencil"></i> </button></a> <a href="#"><button class="btn btn-success" rel="tooltip" title="Detalles"> <i class="fa fa-info-circle"></i></button></a> <button class="btn btn-danger" rel="tooltip" title="Eliminar" Onclick="ConfirmDelete({{$categoria->id}})"> <i class="fa fa-remove"></i></button> </td>
+                    <td>
+                      @if($categoria->foto) 
+                      <img src="{{asset($categoria->foto)}}" width="30">
+                      @endif
+                    </td>
+                    <td><a href="{{url('admin/categorias/'.$categoria->id.'/editar')}}"><button class="btn btn-warning" rel="tooltip" title="Editar"> <i class="fa fa-pencil"></i> </button></a> <a href="#"><button class="btn btn-success" rel="tooltip" title="Detalles"> <i class="fa fa-info-circle"></i></button></a> <button class="btn btn-danger" rel="tooltip" title="Eliminar" Onclick="ConfirmDelete({{$categoria->id}})"> <i class="fa fa-remove"></i></button> </td>
                   </tr>
                   @endforeach
                   </tbody>

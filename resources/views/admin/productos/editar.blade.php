@@ -22,92 +22,85 @@
                 
                 <div class="form-group">
                   <label for="Nombre" class="col-sm-2 control-label">Nombre del producto</label>
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" value="{{ $producto->nombre }}">
                   </div>
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Nombre</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Nombre del producto" name="nombre" value="{{ $producto->nombre }}">
-                </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-append">
-                  	   <span class="input-group-text">Descripcion</span>
-                  		</div>
-                  		<input type="text" class="form-control" placeholder="Descripción del producto" name="descripcion" value="{{ $producto->descripcion }}">
-
-                </div>
                 <div class="form-group">
-                    <label>Unidad de Medida</label>
+                  <label for="Nombre" class="col-sm-2 control-label">Descripción</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción del producto" value="{{ $producto->descripcion }}">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="unidadmedida" class="col-sm-2 control-label">Unidad de Medida</label>
+                  <div class="col-sm-6">
                     <select class="form-control" name="Umedida">
                       <option @if ($producto->Umedida == 'Caja') Selected @endif>Caja</option>
                       <option @if ($producto->Umedida == 'Charola') Selected @endif>Charola</option>
                       <option @if ($producto->Umedida == 'Paquete') Selected @endif>Paquete</option>
                     </select>
                   </div>
-
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Minimo en Stock</span>
-                  </div>
-                  <input type="number" class="form-control" name="stock" value="{{ $producto->stock }}"->
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio $</span>
+                <div class="form-group">
+                  <label for="minstock" class="col-sm-2 control-label">Mínimo en Stock</label>
+                  <div class="col-sm-6">
+                      <input type="text" class="form-control" id="stock" name="stock" placeholder="Mínimo Stock" value="{{ $producto->stock }}">
                   </div>
-                  <input type="number" class="form-control" name="precio" value="{{ $producto->precio }}"->
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 25% $</span>
+                <div class="form-group">
+                  <label for="precio" class="col-sm-2 control-label">Precio $</label>
+                  <div class="col-sm-6">
+                      <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio" value="{{ $producto->precio }}">
                   </div>
-                  <input type="number" class="form-control" name="precioP25" value="{{ $producto->P25 }}">
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 29% $</span>
+                <div class="form-group">
+                  <label for="p25" class="col-sm-2 control-label">Precio$ 25%</label>
+                  <div class="col-sm-6">
+                      <input type="number" class="form-control" id="precioP25" name="precioP25" placeholder="Precio 25%" value="{{ $producto->P25 }}">
                   </div>
-                  <input type="number" class="form-control" name="precioP29" value="{{ $producto->P29 }}">
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 30% $</span>
+                <div class="form-group">
+                  <label for="p29" class="col-sm-2 control-label">Precio$ 29%</label>
+                  <div class="col-sm-6">
+                      <input type="number" class="form-control" id="precioP29" name="precioP29" placeholder="Precio 29%" value="{{ $producto->P29 }}">
                   </div>
-                  <input type="number" class="form-control" name="precioP30" value="{{ $producto->P30 }}">
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 35% $</span>
+                <div class="form-group">
+                  <label for="p30" class="col-sm-2 control-label">Precio$ 30%</label>
+                  <div class="col-sm-6">
+                      <input type="number" class="form-control" id="precioP30" name="precioP30" placeholder="Precio 30%" value="{{ $producto->P30 }}">
                   </div>
-                  <input type="number" class="form-control" name="precioP35" value="{{ $producto->P35 }}">
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Precio 40% $</span>
+                <div class="form-group">
+                  <label for="p35" class="col-sm-2 control-label">Precio$ 35%</label>
+                  <div class="col-sm-6">
+                      <input type="number" class="form-control" id="precioP35" name="precioP35" placeholder="Precio 35%" value="{{ $producto->P35 }}">
                   </div>
-                  <input type="number" class="form-control" name="precioP40" value="{{ $producto->P40 }}">
                 </div>
 
-
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="ExcentoDescuento" name="ExcentoDescuento"  @if($producto->ExcentoDescuento == 1) checked="true" @endif>
-                        <label class="form-check-label" for="ExcentoDescuento">Excento de Descuento</label>
-                      </div>
-                    </div>
+                <div class="form-group">
+                  <label for="p40" class="col-sm-2 control-label">Precio$ 40%</label>
+                  <div class="col-sm-6">
+                      <input type="number" class="form-control" id="precioP40" name="precioP40" placeholder="Precio 40%" value="{{ $producto->P40 }}">
                   </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="p40" class="col-sm-2 control-label">Excento de Descuento</label>
+                  <div class="col-sm-6">
+                       <input type="checkbox" class="form-check-input" id="ExcentoDescuento" name="ExcentoDescuento"  @if($producto->ExcentoDescuento == 1) checked="true" @endif>
+                  </div>
+                </div>
+
 
                   <button type="submit" class="btn btn-primary"> Actualizar Producto
 

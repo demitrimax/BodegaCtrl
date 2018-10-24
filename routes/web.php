@@ -72,6 +72,8 @@ Route::middleware(['admin'])->group( function() {
   Route::get('admin/categorias/agregar','CategoriasController@agregar');
   Route::post('admin/categorias/guardar', 'CategoriasController@guardar');
   Route::get('admin/categorias/{id}/eliminar','CategoriasController@eliminar');
+  Route::get('admin/categorias/{id}/editar','CategoriasController@editar');
+  Route::post('admin/categorias/{id}/actualizar', 'CategoriasController@actualizar');
 
   //AJAX REPORTES
   Route::get('ajax-fechastiendas', 'ReportesController@ajaxtiendasfechas');
